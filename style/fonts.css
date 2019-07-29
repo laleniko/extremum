@@ -1,0 +1,27 @@
+@font-face {
+	font-family: "Transcript Pro Mono";
+	src: url(../fonts/Transcript-Pro-Mono-Bold.ttf) format("truetype");
+	font-style: normal; 
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "Transcript Pro Mono";
+	src: url(../fonts/transcript-mono-medium-pro.ttf) format("truetype");
+	font-style: normal; 
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "Transcript Pro Mono";
+	src: url(../fonts/Transcript-Pro-Mono-Regular.ttf) format("truetype");
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Transcript Pro Mono";
+	src: url(../fonts/Transcript-Pro-Mono-Light.ttf) format("truetype");
+	font-style: normal; 
+	font-weight: 300;
+}
