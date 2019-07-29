@@ -4,6 +4,9 @@ body{
     margin: 0 auto;
 }
 
+a:focus, button:focus {
+    outline: none;
+}
 
 .main-header {
     display: flex;
@@ -197,6 +200,7 @@ body{
     padding-right: 24px;
     text-decoration: none;
     cursor: pointer;
+    position: relative;
 }
 
 .gamer:hover {
@@ -207,16 +211,22 @@ body{
     color: #FE4B00;
 }
 
-.gamer__active .gamer_photo {
-    border: 2px solid #FE4B00;
-    border-radius: 100px;
-}
-
 .gamer_photo {
     margin-right: 15px;
     width: 48px;
     height: 48px;
     border-radius: 100px;
+}
+
+.gamer__active .gamer_photo-container::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    border: 2px solid #FE4B00;
+    position: absolute;
+    top: 13px;
 }
 
 .gamer_name {
@@ -252,7 +262,7 @@ body{
 .about-section {
     padding-left: 26px;
     padding-right: 24px;
-    margin-bottom: 42px;
+    margin-bottom: 72px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -343,6 +353,10 @@ body{
 
 .privacy-color_red {
     color: rgb(255, 66, 31)
+}
+
+span.privacy-color_red {
+    text-transform: uppercase;
 }
 
 /* Player block */
@@ -564,7 +578,7 @@ body{
     .gamer-tag {
         display: block;
         position: absolute;
-        bottom: 0;
+        bottom: 20px;
         left: 20px;
     } 
 
@@ -574,7 +588,7 @@ body{
 
     .socials {
         margin-left: 45px;
-        margin-top: -24px;
+        margin-top: -41px;
         margin-bottom: 20px;
     }
 
@@ -589,10 +603,11 @@ body{
     .privacy {
         transform: rotate(90deg);
         position: absolute;
-        top: 445px;
-        left: -361px;
+        top: 436px;
+        left: -347px;
         display: flex;
         flex-direction: row;
+        padding-right: 0;
     }
 
     .privacy_age {
@@ -607,11 +622,11 @@ body{
     .player {
         background-size: contain;
         width: 100%;
-        background-position: left;
+        background-position: center;
         align-items: flex-end;
         margin-top: 0;
         margin-right: 20px;
-        height: 789px;
+        height: 809px;
     }
 
     .player_information {
