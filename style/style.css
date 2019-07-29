@@ -345,6 +345,110 @@ body{
     color: rgb(255, 66, 31)
 }
 
+/* Player block */
+
+.player {
+    background-size: 450px 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 26px;
+}
+
+.player-1 {
+    background-image: url(../imgaes/players-main/image-iksou.png);
+}
+
+.player-2 {
+    background-image: url(../imgaes/players-main/image-water.jpg);
+}
+
+.player-3 {
+    background-image: url(../imgaes/players-main/image-talker.jpg);
+}
+
+.player-4 {
+    background-image: url(../imgaes/players-main/image-airscape.jpg);
+}
+
+.player-5 {
+    background-image: url(../imgaes/players-main/image-balbina.jpg);
+}
+
+.player-6 {
+    background-image: url(../imgaes/players-main/image-vitosh.png);
+}
+
+.player_information {
+}
+
+.player_play {
+    width: 28px;
+    height: 28px;
+    background-image: url(../imgaes/icons/play-button.svg);
+    background-color: transparent;
+    border: none;
+}
+
+.player_nickname {
+    color: white;
+    font-size: 48px;
+    line-height: 140%;
+    margin: 0;
+}
+
+.player_name {
+    font-size: 24px;
+    line-height: 140%;
+    color: #FE4B00;
+    margin: 0;
+}
+
+.player_country {
+    font-size: 14px;
+    line-height: 120%;
+    color: #C0C0C0;
+    margin: 0;
+}
+
+.player_age {
+    font-size: 14px;
+    line-height: 120%;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.player_trainer {
+    font-size: 18px;
+    line-height: 150%;
+    text-transform: lowercase;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.player_scores-table {
+    margin-top: 560px;
+}
+
+.scores-table {
+}
+
+.scores-table_count {
+    font-size: 24px;
+    line-height: 140%;
+    color: #FFFFFF;
+    text-align: center;
+    width: 90px;
+}
+
+.scores-table_description {
+    display: block;
+    font-size: 12px;
+    line-height: 140%;
+    color: rgba(255, 255, 255, 0.5);
+}
+
 /* Media */
 
 @media only screen and (min-width: 1080px) {
@@ -415,8 +519,11 @@ body{
 
     .main-content {
         display: flex;
-        margin-left: 90px;
         flex-grow: 1;
+    }
+
+    .welcome-section {
+        margin-left: 90px;
     }
 
     .welcome-section_text {
@@ -496,7 +603,34 @@ body{
         margin-left: 30px;
         width: 390px;
     }
+
+    .player {
+        background-size: contain;
+        width: 100%;
+        background-position: left;
+        align-items: flex-end;
+        margin-top: 0;
+        margin-right: 20px;
+        height: 789px;
+    }
+
+    .player_information {
+        margin-top: 36px;
+        width: 308px;
+    }
+
+    .player_scores-table {
+        margin-top: 20px;
+        width: 308px;
+    }
+
+    .scores-table_count {
+        text-align: left;
+        width: 98px;
+    
+    }
 }
+
 
 @media only screen and (min-width: 1370px) {
     .welcome-section_text {

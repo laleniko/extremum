@@ -1,3 +1,4 @@
+// Бургер меню
 document.querySelector('.main-header_menu').onclick = () => {
     let items = document.querySelectorAll('.menu-global');
     let selectors = ['menu-top-click','menu-middle-click','menu-bottom-click']
@@ -8,7 +9,7 @@ document.querySelector('.main-header_menu').onclick = () => {
     document.querySelector('.main-header').classList.toggle('main-header__active');
     document.querySelector('.main-header_logo').classList.toggle('main-header_logo__active');
 }
-
+// Выбор языка
 let langBtn = document.querySelector('.navigation_lang');
 let language = window.navigator ? (window.navigator.language ||
     window.navigator.systemLanguage ||
@@ -47,3 +48,35 @@ if(language == 'ru') {
     }
     langBtn.innerText = 'RUS';
 }
+
+// Выбор игрока
+let gamersButtons = document.querySelectorAll('.gamer');
+let gamerBlocks = document.querySelectorAll('.player');
+let welcomeSection = document.querySelector('.welcome-section');
+let aboutSection = document.querySelector('.about-section');
+
+for(let i = 0; i < gamersButtons.length; i++) {
+    gamersButtons[i].onclick = () => {
+        welcomeSection.style.display = "none";
+        aboutSection.style.display = "none";
+        for(let y = 0; y < gamerBlocks.length; y++) {
+            if(y == i) {
+                gamerBlocks[y].style.display = "flex"; 
+                gamersButtons[y].classList.add('gamer__active');
+            } else {
+                gamerBlocks[y].style.display = "none";
+                gamersButtons[y].classList.remove('gamer__active');
+            }
+        }
+    }
+}
+
+// gamersButtons[0].onclick = () => {
+//     gamerBlocks[0].style.display = "flex";
+//     gamerBlocks[1].style.display = "none";
+//     gamerBlocks[2].style.display = "none";
+//     gamerBlocks[3].style.display = "none";
+//     gamerBlocks[4].style.display = "none";
+//     gamerBlocks[5].style.display = "none";
+//     gamerBlocks[6].style.display = "none";
+// }
