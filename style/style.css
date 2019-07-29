@@ -468,7 +468,7 @@ body{
     .socials {
         margin-left: 45px;
         margin-top: -24px;
-        margin-bottom: 0;
+        margin-bottom: 20px;
     }
 
     .about-section {
@@ -482,14 +482,14 @@ body{
     .privacy {
         transform: rotate(90deg);
         position: absolute;
-        top: 418px;
-        left: -316px;
+        top: 445px;
+        left: -361px;
         display: flex;
         flex-direction: row;
     }
 
     .privacy_age {
-        width: 276px;
+        width: 332px;
     }
 
     .privacy-text {
