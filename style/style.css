@@ -305,6 +305,7 @@ body{
 
 .socials-link_vk {
     background-image: url(../imgaes/icons/vk.svg);
+    background-size: 202%;
 }
 
 .privacy {
@@ -347,6 +348,12 @@ body{
 /* Media */
 
 @media only screen and (min-width: 1080px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
     .main-header {
         margin-right: 351px;
     }
@@ -409,6 +416,7 @@ body{
     .main-content {
         display: flex;
         margin-left: 90px;
+        flex-grow: 1;
     }
 
     .welcome-section_text {
@@ -452,6 +460,10 @@ body{
         bottom: 0;
         left: 20px;
     } 
+
+    .main-footer {
+        flex-grow: 0;
+    }
 
     .socials {
         margin-left: 45px;
