@@ -24,7 +24,6 @@ langBtn.onclick = () =>  {
         }
         langBtn.innerText = 'RUS';
         cookie.set('translate', 'eng', 20);
-        console.log(cookie.get('translate'));
     } else {
         let ru = document.querySelectorAll('[data-ru]');
         for(let i = 0; i < ru.length; i++) {
@@ -35,7 +34,21 @@ langBtn.onclick = () =>  {
     }
 }
 
-if(language == 'ru') {
+if(cookie.get('translate')) {
+    if(cookie.get('translate') == 'rus') {
+        let ru = document.querySelectorAll('[data-ru]');
+        for(let i = 0; i < ru.length; i++) {
+            ru[i].innerHTML = ru[i].dataset.ru;
+        }
+        langBtn.innerText = 'ENG';
+    } else {
+        let eng = document.querySelectorAll('[data-eng]');
+        for(let i = 0; i < eng.length; i++) {
+            eng[i].innerHTML = eng[i].dataset.eng;
+        }
+        langBtn.innerText = 'RUS'
+    }
+} else if(language == 'ru') {
     let ru = document.querySelectorAll('[data-ru]');
     for(let i = 0; i < ru.length; i++) {
         ru[i].innerHTML = ru[i].dataset.ru;
@@ -48,6 +61,8 @@ if(language == 'ru') {
     }
     langBtn.innerText = 'RUS';
 }
+
+console.log(cookie.get('translate'));
 
 // Выбор игрока
 let gamersButtons = document.querySelectorAll('.gamer');
