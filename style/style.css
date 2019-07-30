@@ -34,12 +34,7 @@ a:focus, button:focus {
 }
 
 .main-header_navigation {
-    flex-direction: column;
-    position: absolute;
-    background-color: #F3F3F3;
-    top: 72px;
     width: 100%;
-    display: none;
 }
 
 .main-header_navigation__active {
@@ -50,14 +45,13 @@ a:focus, button:focus {
     display: flex;
     flex-direction: column;
     padding-left: 5%;
-    margin-bottom: 136px;
 }
 
 .navigation-right {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-left: 5%;
+    justify-content: flex-end;
+    padding-right: 5%;
 }
 
 .navigation_item {
@@ -86,7 +80,7 @@ a:focus, button:focus {
 }
 
 .navigation_lang {
-    color: black;
+    color: #FFFFFF;
     font-size: 24px;
     line-height: 24px;
     background-color: transparent;
@@ -112,6 +106,7 @@ a:focus, button:focus {
     height: 15px;
     margin-right: 5%;
     margin-bottom: 12px;
+    display: none;
   }
 .menu-global {
     backface-visibility: hidden;
@@ -404,6 +399,7 @@ span.privacy-color_red {
     background-image: url(../imgaes/icons/play-button.svg);
     background-color: transparent;
     border: none;
+    display: block;
 }
 
 .player_nickname {
@@ -505,6 +501,7 @@ span.privacy-color_red {
 
     .navigation-right {
         padding-left: 0;
+        padding-right: 0;
         margin-right: 30px;
     }
 
