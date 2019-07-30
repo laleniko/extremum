@@ -80,9 +80,9 @@ a:focus, button:focus {
 }
 
 .navigation_lang {
+    font-size: 18px;
+    line-height: 18px;
     color: #FFFFFF;
-    font-size: 24px;
-    line-height: 24px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -520,12 +520,6 @@ span.privacy-color_red {
 
     .navigation_item:nth-child(1) {
         width: 92px;
-    }
-
-    .navigation_lang {
-        font-size: 18px;
-        line-height: 18px;
-        color: #FFFFFF;
     }
 
     .main-content {
