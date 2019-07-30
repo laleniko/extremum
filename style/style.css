@@ -2,6 +2,7 @@ body{
     background-color: #000000;
     font-family: "Transcript Pro Mono";
     margin: 0 auto;
+    zoom: 90%;
 }
 
 a:focus, button:focus {
