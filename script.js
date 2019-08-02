@@ -9,6 +9,7 @@ document.querySelector('.main-header_menu').onclick = () => {
     document.querySelector('.main-header').classList.toggle('main-header__active');
     document.querySelector('.main-header_logo').classList.toggle('main-header_logo__active');
 }
+
 // Выбор языка
 let langBtn = document.querySelector('.navigation_lang');
 let language = window.navigator ? (window.navigator.language ||
@@ -62,9 +63,8 @@ if(cookie.get('translate')) {
     langBtn.innerText = 'RUS';
 }
 
-console.log(cookie.get('translate'));
-
 // Выбор игрока
+let navigationItems = document.querySelectorAll('.navigation_item');
 let gamersButtons = document.querySelectorAll('.gamer');
 let gamerBlocks = document.querySelectorAll('.player');
 let welcomeSection = document.querySelector('.welcome-section');
@@ -74,6 +74,11 @@ for(let i = 0; i < gamersButtons.length; i++) {
     gamersButtons[i].onclick = () => {
         welcomeSection.style.display = "none";
         aboutSection.style.display = "none";
+        contactsBlock.style.display = "none";
+        historyBlock.style.display = "none";
+        navigationItems[0].classList.add("navigation_item__active");
+        navigationItems[1].classList.remove("navigation_item__active");
+        navigationItems[2].classList.remove("navigation_item__active");
         for(let y = 0; y < gamerBlocks.length; y++) {
             if(y == i) {
                 gamerBlocks[y].style.display = "flex"; 
@@ -86,12 +91,49 @@ for(let i = 0; i < gamersButtons.length; i++) {
     }
 }
 
-// gamersButtons[0].onclick = () => {
-//     gamerBlocks[0].style.display = "flex";
-//     gamerBlocks[1].style.display = "none";
-//     gamerBlocks[2].style.display = "none";
-//     gamerBlocks[3].style.display = "none";
-//     gamerBlocks[4].style.display = "none";
-//     gamerBlocks[5].style.display = "none";
-//     gamerBlocks[6].style.display = "none";
-// }
+// Menu
+let contactsBlock = document.querySelector('.contacts');
+let historyBlock = document.querySelector('.history');
+let gamersHide = () => {
+    for(let y = 0; y < gamerBlocks.length; y++) {
+            gamerBlocks[y].style.display = "none"; 
+            gamersButtons[y].classList.remove('gamer__active');
+    }
+}
+
+navigationItems.forEach((element) => {
+    element.onclick = () => {
+        for(let i = 0; i < navigationItems.length; i++) {
+            navigationItems[i].classList.remove('navigation_item__active');
+        }
+        if(element.classList.contains('navigation_item-team')) {
+            element.classList.add('navigation_item__active');
+
+            welcomeSection.style.display = "block";
+            aboutSection.style.display = "flex";
+            contactsBlock.style.display = "none";
+            historyBlock.style.display = "none";
+            gamersHide();
+        }
+        if(element.classList.contains('navigation_item-contacts')) {
+            element.classList.add('navigation_item__active');
+
+            welcomeSection.style.display = "none";
+            aboutSection.style.display = "none";
+            contactsBlock.style.display = "flex";
+            historyBlock.style.display = "none";
+            gamersHide();
+        }
+        if(element.classList.contains('navigation_item-history')) {
+            element.classList.add('navigation_item__active');
+
+            welcomeSection.style.display = "none";
+            aboutSection.style.display = "none";
+            contactsBlock.style.display = "none";
+            historyBlock.style.display = "flex";
+            gamersHide();
+        }
+    };
+}
+)
+

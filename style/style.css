@@ -63,6 +63,7 @@ a:focus, button:focus {
 }
 
 .navigation_item {
+    cursor: pointer;
     font-size: 32px;
     line-height: 200%;
     text-transform: uppercase;
@@ -85,6 +86,11 @@ a:focus, button:focus {
 		 1px -1px 0   #000000,
 		-1px  1px 0   #000000,
 		 1px  1px 0   #000000;
+}
+
+.navigation_item__active {
+    color: black;
+    text-shadow: none;
 }
 
 .navigation_lang {
@@ -633,12 +639,13 @@ span.privacy-color_red {
         width: 100%;
         margin-left: 90px;
         height: 809px;
+        position: relative;
     }
 
     .history_text {
         height: 740px;
         overflow-y: hidden;
-        position: relative;
+        
     }
 
     .history_gradient-container {
