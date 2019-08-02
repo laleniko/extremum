@@ -1,14 +1,14 @@
 // Бургер меню
-// document.querySelector('.main-header_menu').onclick = () => {
-//     let items = document.querySelectorAll('.menu-global');
-//     let selectors = ['menu-top-click','menu-middle-click','menu-bottom-click']
-//     for(let i = 0; i < items.length; i++) {
-//         items[i].classList.toggle(selectors[i]);
-//     }
-//     document.querySelector('.main-header_navigation').classList.toggle('main-header_navigation__active');
-//     document.querySelector('.main-header').classList.toggle('main-header__active');
-//     document.querySelector('.main-header_logo').classList.toggle('main-header_logo__active');
-// }
+document.querySelector('.main-header_menu').onclick = () => {
+    let items = document.querySelectorAll('.menu-global');
+    let selectors = ['menu-top-click','menu-middle-click','menu-bottom-click']
+    for(let i = 0; i < items.length; i++) {
+        items[i].classList.toggle(selectors[i]);
+    }
+    document.querySelector('.main-header_navigation').classList.toggle('main-header_navigation__active');
+    document.querySelector('.main-header').classList.toggle('main-header__active');
+    document.querySelector('.main-header_logo').classList.toggle('main-header_logo__active');
+}
 // Выбор языка
 let langBtn = document.querySelector('.navigation_lang');
 let language = window.navigator ? (window.navigator.language ||

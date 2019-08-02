@@ -35,7 +35,13 @@ a:focus, button:focus {
 }
 
 .main-header_navigation {
+    flex-direction: column;
+    position: absolute;
+    background-color: #F3F3F3;
+    top: 72px;
     width: 100%;
+    display: none;
+    z-index: 5;
 }
 
 .main-header_navigation__active {
@@ -46,13 +52,14 @@ a:focus, button:focus {
     display: flex;
     flex-direction: column;
     padding-left: 5%;
+    margin-bottom: 136px;
 }
 
 .navigation-right {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 5%;
+    justify-content: space-between;
+    padding-left: 5%;
 }
 
 .navigation_item {
@@ -81,9 +88,9 @@ a:focus, button:focus {
 }
 
 .navigation_lang {
-    font-size: 18px;
-    line-height: 18px;
-    color: #FFFFFF;
+    font-size: 24px;
+    line-height: 24px;
+    color: black;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -107,7 +114,6 @@ a:focus, button:focus {
     height: 15px;
     margin-right: 5%;
     margin-bottom: 12px;
-    display: none;
   }
 .menu-global {
     backface-visibility: hidden;
@@ -273,6 +279,38 @@ a:focus, button:focus {
     padding-bottom: 20px;
 }
 
+/* Contacts */
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.contacts-mail {
+    margin-bottom: 10px;
+    font-size: 56px;
+    line-height: 150%;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* History */
+.history {
+    margin: 50px;
+}
+.history_text {
+    font-size: 56px;
+    line-height: 150%;
+    -webkit-text-stroke: white 1px;
+}
+
+.history_text__white {
+    color: white;
+}
+
 /* Footer */
 .socials {
     display: flex;
@@ -391,9 +429,6 @@ span.privacy-color_red {
     background-image: url(../imgaes/players-main/image-vitosh.png);
 }
 
-.player_information {
-}
-
 .player_play {
     width: 28px;
     height: 28px;
@@ -440,9 +475,6 @@ span.privacy-color_red {
 
 .player_scores-table {
     margin-top: 560px;
-}
-
-.scores-table {
 }
 
 .scores-table_count {
@@ -519,6 +551,12 @@ span.privacy-color_red {
         color: white;
     }
 
+    .navigation_lang {
+        font-size: 18px;
+        line-height: 18px;
+        color: #FFFFFF;
+    }
+
     .navigation_item:nth-child(1) {
         width: 92px;
     }
@@ -573,6 +611,44 @@ span.privacy-color_red {
         bottom: 20px;
         left: 20px;
     } 
+
+    .contacts {
+        width: 100%;
+        margin-left: 90px;
+        height: 809px;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .contacts-mail {
+        padding-top: 30px;
+    }
+
+    .contacts-img {
+        padding: 30px;
+    }
+
+    .history {
+        width: 100%;
+        margin-left: 90px;
+        height: 809px;
+    }
+
+    .history_text {
+        height: 740px;
+        overflow-y: hidden;
+        position: relative;
+    }
+
+    .history_gradient-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 78%, rgba(0,0,0,0.37298669467787116) 97%);
+    }
 
     .main-footer {
         flex-grow: 0;
