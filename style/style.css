@@ -60,6 +60,7 @@ a:focus, button:focus {
     align-items: center;
     justify-content: space-between;
     padding-left: 5%;
+    margin-bottom: 20px;
 }
 
 .navigation_item {
@@ -116,10 +117,9 @@ a:focus, button:focus {
     cursor: pointer;
     padding-left: 1.25em;
     position: relative;
-    width: 15px;
-    height: 15px;
+    width: 31px;
+    height: 31px;
     margin-right: 5%;
-    margin-bottom: 12px;
   }
 .menu-global {
     backface-visibility: hidden;
@@ -542,6 +542,7 @@ span.privacy-color_red {
         padding-left: 0;
         padding-right: 0;
         margin-right: 30px;
+        margin-bottom: 0;
     }
 
     .navigation_item {
@@ -570,6 +571,7 @@ span.privacy-color_red {
     .main-content {
         display: flex;
         flex-grow: 1;
+        height: 809px;
     }
 
     .welcome-section {
@@ -621,7 +623,6 @@ span.privacy-color_red {
     .contacts {
         width: 100%;
         margin-left: 90px;
-        height: 809px;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
@@ -638,13 +639,12 @@ span.privacy-color_red {
     .history {
         width: 100%;
         margin-left: 90px;
-        height: 809px;
         position: relative;
+        overflow-y: hidden;
     }
 
     .history_text {
         height: 740px;
-        overflow-y: hidden;
         
     }
 
@@ -701,7 +701,6 @@ span.privacy-color_red {
         align-items: flex-end;
         margin-top: 0;
         margin-right: 20px;
-        height: 809px;
     }
 
     .player_information {
