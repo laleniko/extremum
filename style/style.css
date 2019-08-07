@@ -2,7 +2,6 @@ body{
     background-color: #000000;
     font-family: "Transcript Pro Mono";
     margin: 0 auto;
-    zoom: 90%;
 }
 
 a:focus, button:focus {
@@ -184,6 +183,10 @@ a:focus, button:focus {
      -webkit-text-stroke: white 1px;
 }
 
+.welcome-section_inner-text-container {
+    display: none;
+}
+
 /* Gamer section */
 .gamer-section_header-container {
     padding-top: 22px;
@@ -363,6 +366,10 @@ a:focus, button:focus {
     padding-right: 27px;
 }
 
+.privacy__desktop {
+    display: none;
+}
+
 .privacy_age {
     display: flex;
     align-items: center;
@@ -500,7 +507,7 @@ span.privacy-color_red {
 
 /* Media */
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 992px) {
     body {
         display: flex;
         flex-direction: column;
@@ -508,14 +515,18 @@ span.privacy-color_red {
     }
 
     .main-header {
-        margin-right: 351px;
+        margin-right: 27%;
+        border-right: 1px solid #1F1F1F;
+        height: calc( (100vw - 992px)/(3840 - 992) * (155 - 50) + 50px);
     }
     .main-header_menu {
         display: none;
     }
 
     .main-header_logo {
-        width: 378px;
+        background-image: url(../imgaes/logo-mini.svg);
+        min-width: 25px;
+        height: 25px;
         margin-left: 32px;
     }
 
@@ -528,14 +539,14 @@ span.privacy-color_red {
         background-color: black;
         margin-left: 38px;
         border-left: 1px solid #1F1F1F;
-        height: 72px;
+        height: calc( (100vw - 992px)/(3840 - 992) * (155 - 50) + 50px);;
     }
 
     .navigation-left {
         display: block;
         margin: 0;
-        width: 312px;
-        padding-left: 28px;
+        padding-left: 4%;
+        width: 100%;
     }
 
     .navigation-right {
@@ -548,8 +559,8 @@ span.privacy-color_red {
     .navigation_item {
         display: inline;
         text-shadow: none;
-        margin-right: 20px;
-        font-size: 18px;
+        margin-right: 5%;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (56 - 18) + 18px);
         line-height: 18px;
         color: rgba(255, 255, 255, 0.7);
     }
@@ -559,7 +570,7 @@ span.privacy-color_red {
     }
 
     .navigation_lang {
-        font-size: 18px;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (56 - 18) + 18px);
         line-height: 18px;
         color: #FFFFFF;
     }
@@ -571,30 +582,58 @@ span.privacy-color_red {
     .main-content {
         display: flex;
         flex-grow: 1;
-        height: 809px;
     }
 
     .welcome-section {
-        margin-left: 90px;
+        width: 44%;
     }
 
     .welcome-section_text {
-        font-size: 3.2vw;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (142 - 36) + 36px);
         line-height: 150%;
         letter-spacing: 0.05em;
     }
 
+    .gamer {
+        padding-left: 7%;
+        padding-top: calc( (100vw - 992px)/(3840 - 992) * (37 - 10) + 10px);;
+        padding-bottom: calc( (100vw - 992px)/(3840 - 992) * (37 - 10) + 10px);
+    }
+
     .gamer-section {
         order: 3;
-        margin-top: -90px;
-        min-width: 350px;
+        margin-top: calc( (((100vw - 992px)/(3840 - 992) * (155 - 51) + 51px) * -1));
+        min-width: 27%;
         background-color: #0A0A0A;
         border-left: 1px solid #1F1F1F;
         position: relative;
     }
 
+    .gamer_photo {
+        width: auto;
+        height: calc( (100vw - 992px)/(3840 - 992) * (145 - 45) + 45px);
+    }
+
+    .gamer__active .gamer_photo-container::after {
+        height: calc( (100vw - 992px)/(3840 - 992) * (145 - 45) + 45px);
+        width: calc( (100vw - 992px)/(3840 - 992) * (145 - 45) + 45px);
+        top: calc( (100vw - 992px)/(3840 - 992) * (37 - 8) + 8px);
+        border-width: calc( (100vw - 992px)/(3840 - 992) * (8 - 2) + 2px);
+    }
     .gamer-section_header-container {
-        padding-bottom: 3px;
+        padding-bottom: 0;
+        padding-top: 0;
+        height: calc( (100vw - 992px)/(3840 - 992) * (155 - 50) + 50px);
+        display: flex;
+        align-items: center;
+        margin-left: 10%;
+    }
+
+    .gamer-section_header {
+        margin: 0;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (56 - 24) + 24px);
     }
 
     .gamer__trainer {
@@ -605,24 +644,75 @@ span.privacy-color_red {
     
     .gamer__trainer::after {
         content: "";
-        width: 300px;
-        height: 1px;;
+        width: 100%;
+        height: 1px;
         display: block;
         background-color: #151515;
         position: absolute;
         bottom: -6px;
+        left: 0;
+    }
+
+    .gamer_nickname {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (72 - 20) + 20px);
+        line-height: calc( (100vw - 992px)/(3840 - 992) * (72 - 20) + 20px);
+    }
+
+    .gamer_real-name {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (48 - 12) + 12px);
+        line-height: calc( (100vw - 992px)/(3840 - 992) * (48 - 12) + 12px);
+    }
+
+    .gamer_position {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (72 - 24) + 24px);
+        line-height: calc( (100vw - 992px)/(3840 - 992) * (48 - 12) + 12px);
     }
 
     .gamer-tag {
-        display: block;
+        display: none;
         position: absolute;
         bottom: 20px;
         left: 20px;
     } 
 
+    .player_information {
+        width: calc( (100vw - 992px)/(3840 - 992) * (630 - 308) + 308px);
+    }
+
+    .player_scores-table{
+        width: calc( (100vw - 992px)/(3840 - 992) * (630 - 308) + 308px);
+    }
+
+    .player_nickname {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (68 - 48) + 48px);
+    }
+    
+    .player_name {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (44 - 24) + 24px);
+    }
+    
+    .player_country {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (34 - 14) + 14px);
+    }
+    
+    .player_age {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (34 - 14) + 14px);
+    }
+    
+    .player_trainer {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (38 - 18) + 18px);
+    }
+    
+    .scores-table_count {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (44 - 24) + 24px);
+    }
+    
+    .scores-table_description {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (32 - 12) + 12px);
+    }
+
     .contacts {
-        width: 100%;
-        margin-left: 90px;
+        width: 72%;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
@@ -637,14 +727,17 @@ span.privacy-color_red {
     }
 
     .history {
-        width: 100%;
-        margin-left: 90px;
+        width: 72%;
         position: relative;
         overflow-y: hidden;
+        margin: 0;
+        margin-bottom: 41px;
     }
 
     .history_text {
-        height: 740px;
+        height: 100%;
+        overflow-y: hidden;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (142 - 36) + 36px);
         
     }
 
@@ -668,67 +761,159 @@ span.privacy-color_red {
     }
 
     .about-section {
-        width: 330px;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 23%;
+        align-items: unset;
+        margin-bottom: 0;
     }
 
     .about-section_text {
-        font-size: 18px;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (60 - 12) + 12px);
     }
 
     .privacy {
-        transform: rotate(90deg);
-        position: absolute;
-        top: 436px;
-        left: -347px;
+        display: none;
+    }
+
+    .privacy__desktop {
         display: flex;
-        flex-direction: row;
-        padding-right: 0;
+        flex-direction: column;
+        width: 8%;
+        align-items: center;
     }
 
     .privacy_age {
-        width: 332px;
+        writing-mode: tb-rl;
+        padding-top: 37px;
+    }
+
+    .privacy_age-count {
+        padding-right: 0;
+        display: none;
+    }
+
+    .privacy_age-text {
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (30 - 10) + 10px);
+        margin: 0;
     }
 
     .privacy-text {
-        margin-left: 30px;
-        width: 390px;
+        margin: 0;
+        writing-mode: tb-rl;
+        margin-top: 23%;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (30 - 10) + 10px);
     }
 
     .player {
         background-size: contain;
-        width: 100%;
+        width: 72%;
         background-position: center;
         align-items: flex-end;
         margin-top: 0;
-        margin-right: 20px;
     }
 
     .player_information {
         margin-top: 36px;
-        width: 308px;
     }
 
     .player_scores-table {
         margin-top: 20px;
-        width: 308px;
     }
 
     .scores-table_count {
         text-align: left;
-        width: 98px;
+        width: 17%;
     
     }
 }
 
 
-@media only screen and (min-width: 1370px) {
-    .welcome-section_text {
-        font-size: 55px;
+@media only screen and (min-width: 1152px) {
+    .main-header_logo {
+        background-image: url(../imgaes/logo-white.svg);
+        min-width: 174px;
+        width: calc( (100vw - 1152px)/(3840 - 1152) * (596 - 174) + 174px);
+        height: calc( (100vw - 1152px)/(3840 - 1152) * (50 - 15) + 15px);
+        margin-left: 4%;
+    }
+
+    .privacy_age {
+        padding-top: 27px;
+    }
+
+    .privacy_age-count {
+        display: block;
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (96 - 30) + 30px);
+    }
+
+    .privacy_age-text {
+        padding-top: 5px;
     }
 }
 
-@media only screen and (min-width: 1570px) {
+@media only screen and (min-width: 1366px) {
+    
+}
+
+@media only screen and (min-width: 1536px) {
+    
+}
+
+@media only screen and (min-width: 1920px) {
+    .gamer-tag {
+        display: block;
+        bottom: 32.7px;
+        left: 7%;
+        width: 87%;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .gamer-tag {
+        display: none;
+    }
+
+    .about-section {
+        display: none !important;
+    }
+
+    .welcome-section {
+        width: 72%;
+    }
+
     .welcome-section_text {
-        font-size: 70px;
+        color: white;
+        -webkit-text-stroke: unset;
+        line-height: 130%;
+        font-weight: normal;
+        background-image: url(../imgaes/ourway-white.svg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        padding-top: calc( (100vw - 2560px)/(3840 - 2560) * (212 - 112) + 112px);
+    }
+
+    .welcome-section_inner-text-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .welcome-section_inner-text {
+        color: white;
+        font-size: calc( (100vw - 2560px)/(3840 - 2560) * (64 - 48) + 48px);
+        font-weight: normal;
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 3840px) {
+    .welcome-section_inner-text-container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 150px;
+    }
+
+    .welcome-section_inner-text:nth-of-type(2) {
+        margin-left: 215px;
     }
 }
