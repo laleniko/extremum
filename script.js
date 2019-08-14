@@ -1,13 +1,31 @@
 // Бургер меню
 document.querySelector('.main-header_menu').onclick = () => {
-    let items = document.querySelectorAll('.menu-global');
-    let selectors = ['menu-top-click','menu-middle-click','menu-bottom-click']
-    for(let i = 0; i < items.length; i++) {
-        items[i].classList.toggle(selectors[i]);
+    burgerMenuToggle();
+
+    document.querySelector('main').onclick = () => {
+        burgerMenuToggle();
+        document.querySelector('main').onclick = null;
     }
-    document.querySelector('.main-header_navigation').classList.toggle('main-header_navigation__active');
-    document.querySelector('.main-header').classList.toggle('main-header__active');
-    document.querySelector('.main-header_logo').classList.toggle('main-header_logo__active');
+}
+
+function burgerMenuToggle (status) {
+    let items = document.querySelectorAll('.menu-global');
+    let selectors = ['menu-top-click','menu-middle-click','menu-bottom-click'];
+    if (status == 'hide') {
+        for(let i = 0; i < items.length; i++) {
+            items[i].classList.remove(selectors[i]);
+        }
+        document.querySelector('.main-header_navigation').classList.remove('main-header_navigation__active');
+        document.querySelector('.main-header').classList.remove('main-header__active');
+        document.querySelector('.main-header_logo').classList.remove('main-header_logo__active');  
+    } else {
+        for(let i = 0; i < items.length; i++) {
+            items[i].classList.toggle(selectors[i]);
+        }
+        document.querySelector('.main-header_navigation').classList.toggle('main-header_navigation__active');
+        document.querySelector('.main-header').classList.toggle('main-header__active');
+        document.querySelector('.main-header_logo').classList.toggle('main-header_logo__active');
+    }
 }
 
 // Выбор языка
@@ -35,8 +53,23 @@ langBtn.onclick = () =>  {
     }
 }
 
-if(cookie.get('translate')) {
-    if(cookie.get('translate') == 'rus') {
+// Инициализация языка
+function languageInit () {
+    if(cookie.get('translate')) {
+        if(cookie.get('translate') == 'rus') {
+            let ru = document.querySelectorAll('[data-ru]');
+            for(let i = 0; i < ru.length; i++) {
+                ru[i].innerHTML = ru[i].dataset.ru;
+            }
+            langBtn.innerText = 'ENG';
+        } else {
+            let eng = document.querySelectorAll('[data-eng]');
+            for(let i = 0; i < eng.length; i++) {
+                eng[i].innerHTML = eng[i].dataset.eng;
+            }
+            langBtn.innerText = 'RUS'
+        }
+    } else if(language == 'ru') {
         let ru = document.querySelectorAll('[data-ru]');
         for(let i = 0; i < ru.length; i++) {
             ru[i].innerHTML = ru[i].dataset.ru;
@@ -47,21 +80,11 @@ if(cookie.get('translate')) {
         for(let i = 0; i < eng.length; i++) {
             eng[i].innerHTML = eng[i].dataset.eng;
         }
-        langBtn.innerText = 'RUS'
+        langBtn.innerText = 'RUS';
     }
-} else if(language == 'ru') {
-    let ru = document.querySelectorAll('[data-ru]');
-    for(let i = 0; i < ru.length; i++) {
-        ru[i].innerHTML = ru[i].dataset.ru;
-    }
-    langBtn.innerText = 'ENG';
-} else {
-    let eng = document.querySelectorAll('[data-eng]');
-    for(let i = 0; i < eng.length; i++) {
-        eng[i].innerHTML = eng[i].dataset.eng;
-    }
-    langBtn.innerText = 'RUS';
 }
+
+languageInit();
 
 // Выбор игрока
 let navigationItems = document.querySelectorAll('.navigation_item');
@@ -105,6 +128,7 @@ navigationItems.forEach((element) => {
     element.onclick = () => {
         for(let i = 0; i < navigationItems.length; i++) {
             navigationItems[i].classList.remove('navigation_item__active');
+            burgerMenuToggle('hide');
         }
         if(element.classList.contains('navigation_item-team')) {
             element.classList.add('navigation_item__active');
@@ -137,3 +161,70 @@ navigationItems.forEach((element) => {
 }
 )
 
+
+
+// Выбор игрока
+let playerTeamHeaderBlock = document.querySelector('.gamer-section_header-container');
+let playTeamCollapseBlock = document.querySelector('.gamer-section_header-container-collapse');
+let playerTextHeaderMain = document.querySelector('.gamer-section_header-main');
+let playerTeamHeader = document.querySelector('.gamer-section_header-collapse');
+playerTeamHeaderBlock.onclick = teamChange;
+
+function teamChange () {
+    playerTeamHeaderBlock.onclick = null;
+    playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+    playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+
+    document.querySelector('#cs-go-team').onclick = () => {
+
+        if(this.innerText.includes('BNS')) {
+            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+            playerTeamHeaderBlock.onclick = teamChange;
+        } else {
+            document.querySelector('.cs-go-team').style.display = "block";
+            document.querySelector('.bns-team').style.display = "none";
+            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+    
+            playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
+            playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
+    
+            playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
+            playerTeamHeader.dataset.eng = 'BNS TEAM'
+            languageInit();
+            playerTeamHeaderBlock.onclick = teamChange;
+        }
+
+    }
+
+    document.querySelector('#bns-team').onclick = () => {
+        if(this.innerText.includes('CS:GO')) {
+            document.querySelector('.cs-go-team').style.display = "none";
+            document.querySelector('.bns-team').style.display = "block";
+            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+    
+            playerTextHeaderMain.dataset.ru = 'КОМАНДА BNS'
+            playerTextHeaderMain.dataset.eng = 'BNS TEAM'
+    
+            playerTeamHeader.dataset.ru = 'КОМАНДА CS:GO'
+            playerTeamHeader.dataset.eng = 'TEAM CS:GO'
+            languageInit();
+            playerTeamHeaderBlock.onclick = teamChange;
+        } else {
+            document.querySelector('.cs-go-team').style.display = "block";
+            document.querySelector('.bns-team').style.display = "none";
+            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+    
+            playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
+            playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
+    
+            playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
+            playerTeamHeader.dataset.eng = 'BNS TEAM'
+            languageInit();
+            playerTeamHeaderBlock.onclick = teamChange;
+        }
+    }
+}
