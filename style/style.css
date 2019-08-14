@@ -224,13 +224,13 @@ a:focus, button:focus {
     width: 100%;
     top: 0;
     box-sizing: border-box;
-    transition: top 1s;
+    transition: top 0.2s;
 }
 
 .gamer-section_header-container-collapse__active {
     top: 109px;
     background-color: white;
-    transition: top 1s;
+    transition: top 0.2s;
 }
 
 .gamer-section_header {
@@ -607,7 +607,8 @@ span.privacy-color_red {
     }
 
     .main-header {
-        margin-right: 27%;
+        margin-right: 26%;
+        z-index: 0;
         height: calc( (100vw - 992px)/(3840 - 992) * (155 - 50) + 50px);
     }
     .main-header_menu {
@@ -670,7 +671,7 @@ span.privacy-color_red {
 
     .navigation_lang {
         font-size: calc( (100vw - 992px)/(3840 - 992) * (56 - 18) + 18px);
-        line-height: 18px;
+        line-height: 120%;
         color: #FFFFFF;
     }
 
@@ -879,7 +880,7 @@ span.privacy-color_red {
     }
 
     .socials {
-        margin-left: 45px;
+        margin-left: 3%;
         margin-bottom: 20px;
     }
 

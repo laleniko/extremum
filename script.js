@@ -2,10 +2,10 @@
 document.querySelector('.main-header_menu').onclick = () => {
     burgerMenuToggle();
 
-    document.querySelector('main').onclick = () => {
-        burgerMenuToggle();
-        document.querySelector('main').onclick = null;
-    }
+    // document.querySelector('main').onclick = () => {
+    //     burgerMenuToggle();
+    //     document.querySelector('main').onclick = null;
+    // }
 }
 
 function burgerMenuToggle (status) {
