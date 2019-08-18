@@ -161,6 +161,20 @@ navigationItems.forEach((element) => {
 }
 )
 
+// Нажатие на лого
+document.querySelector('.main-header_logo').onclick = () => {
+    for(let i = 0; i < navigationItems.length; i++) {
+        navigationItems[i].classList.remove('navigation_item__active');
+        burgerMenuToggle('hide');
+    }
+    document.querySelector('.navigation_item').classList.add('navigation_item__active');
+    welcomeSection.style.display = "block";
+    aboutSection.style.display = "flex";
+    contactsBlock.style.display = "none";
+    historyBlock.style.display = "none";
+    gamersHide();
+}
+
 
 
 // Выбор игрока

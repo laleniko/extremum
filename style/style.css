@@ -27,6 +27,7 @@ a:focus, button:focus {
     background-repeat: no-repeat;
     min-width: 271px;
     height: 23px;
+    cursor: pointer;
 }
 
 .main-header_logo__active {
