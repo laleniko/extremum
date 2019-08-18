@@ -523,15 +523,15 @@ span.privacy-color_red {
 }
 
 .player-7 {
-    background-image: url(../imgaes/players-main/image-iksou.png);
+    background-image: url(../imgaes/players-main/Shichisu.png);
 }
 
 .player-8 {
-    background-image: url(../imgaes/players-main/image-iksou.png);
+    background-image: url(../imgaes/players-main/Killing-god.png);
 }
 
 .player-9 {
-    background-image: url(../imgaes/players-main/image-iksou.png);
+    background-image: url(../imgaes/players-main/Akeafar.png);
 }
 
 .player_play {
@@ -619,7 +619,7 @@ span.privacy-color_red {
         background-image: url(../imgaes/logo-mini.svg);
         min-width: 25px;
         height: 25px;
-        margin-left: 32px;
+        margin-left: 3.5%;
     }
 
     .main-header__active {
@@ -637,7 +637,7 @@ span.privacy-color_red {
         align-items: center;
         justify-content: space-between;
         background-color: black;
-        margin-left: 38px;
+        margin-left: 3.5%;
         border-left: 1px solid #1F1F1F;
         height: calc( (100vw - 992px)/(3840 - 992) * (155 - 50) + 50px);;
     }
@@ -652,7 +652,7 @@ span.privacy-color_red {
     .navigation-right {
         padding-left: 0;
         padding-right: 0;
-        margin-right: 5%;
+        margin-right: 30px;
         margin-bottom: 0;
     }
 
@@ -685,7 +685,7 @@ span.privacy-color_red {
     }
 
     .welcome-section {
-        width: 44%;
+        width: 45%;
         box-sizing: border-box;
         padding-right: 3%;
     }
@@ -722,7 +722,7 @@ span.privacy-color_red {
     .gamer__active .gamer_photo-container::after {
         height: calc( (100vw - 992px)/(3840 - 992) * (145 - 45) + 45px);
         width: calc( (100vw - 992px)/(3840 - 992) * (145 - 45) + 45px);
-        top: calc( (100vw - 992px)/(3840 - 992) * (37 - 8) + 8px);
+        top: calc( (100vw - 992px)/(3840 - 992) * (29 - 8) + 8px);
         border-width: calc( (100vw - 992px)/(3840 - 992) * (8 - 2) + 2px);
     }
     .gamer-section_header-container {
@@ -835,7 +835,7 @@ span.privacy-color_red {
     }
 
     .contacts {
-        width: 67%;
+        width: 68%;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
@@ -852,7 +852,7 @@ span.privacy-color_red {
     }
 
     .history {
-        width: 67%;
+        width: 68%;
         position: relative;
         overflow-y: hidden;
         margin: 0;
@@ -880,7 +880,7 @@ span.privacy-color_red {
     }
 
     .socials {
-        margin-left: 3%;
+        margin-left: 2%;
         margin-bottom: 20px;
     }
 
@@ -909,7 +909,7 @@ span.privacy-color_red {
     .privacy__desktop {
         display: flex;
         flex-direction: column;
-        width: 8%;
+        width: 7%;
         align-items: center;
     }
 
@@ -937,9 +937,9 @@ span.privacy-color_red {
     }
 
     .player {
-        background-size: contain;
-        width: 67%;
-        background-position: -100px center;
+        background-size: 70%;
+        width: 68%;
+        background-position: left;
         align-items: flex-end;
         margin-top: 0;
     }
@@ -966,7 +966,7 @@ span.privacy-color_red {
         min-width: 174px;
         width: calc( (100vw - 1152px)/(3840 - 1152) * (596 - 174) + 174px);
         height: calc( (100vw - 1152px)/(3840 - 1152) * (50 - 15) + 15px);
-        margin-left: 4.5%;
+        margin-left: 3.5%;
     }
 
     .privacy_age {
@@ -984,11 +984,12 @@ span.privacy-color_red {
 }
 
 @media only screen and (min-width: 1366px) {
-    
 }
 
 @media only screen and (min-width: 1536px) {
-    
+    .player {
+        background-size: contain;
+    }
 }
 
 @media only screen and (min-width: 1920px) {
@@ -998,9 +999,16 @@ span.privacy-color_red {
         left: 7%;
         width: 87%;
     }
+
+    .player {
+        background-position: center;
+    }
 }
 
 @media only screen and (min-width: 2560px) {
+    .navigation-right {
+        margin-right: 6%;
+    }
     .gamer-tag {
         display: none;
     }
@@ -1010,7 +1018,7 @@ span.privacy-color_red {
     }
 
     .welcome-section {
-        width: 67%;
+        width: 68%;
     }
 
     .welcome-section_text {
@@ -1034,10 +1042,6 @@ span.privacy-color_red {
         font-size: calc( (100vw - 2560px)/(3840 - 2560) * (64 - 48) + 48px);
         font-weight: normal;
         margin: 0;
-    }
-
-    .player {
-        background-position: center;
     }
 }
 
