@@ -543,6 +543,11 @@ span.privacy-color_red {
     display: block;
 }
 
+.player_information {
+    align-self: flex-start;
+    margin-left: 40px;
+}
+
 .player_nickname {
     color: white;
     font-size: 48px;
@@ -598,6 +603,13 @@ span.privacy-color_red {
 }
 
 /* Media */
+
+@media only screen and (min-width: 600px) {
+    .player_information {
+        align-self: auto;
+        margin-left: 0;
+    }
+}
 
 @media only screen and (min-width: 992px) {
     body {
@@ -1001,7 +1013,7 @@ span.privacy-color_red {
     }
 
     .player {
-        background-position: center;
+        background-position: 20% center;
     }
 }
 
