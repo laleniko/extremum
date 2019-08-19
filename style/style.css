@@ -192,6 +192,7 @@ a:focus, button:focus {
 /* Gamer section */
 .gamer-section {
     position: relative;
+    margin-bottom: 30px;
 }
 .gamer-section_header-container {
     padding-top: 22px;
@@ -390,11 +391,15 @@ a:focus, button:focus {
 /* History */
 .history {
     margin: 50px;
+    height: 400px;
+    position: relative;
+    overflow-y: hidden;
 }
 .history_text {
     font-size: 56px;
     line-height: 150%;
     -webkit-text-stroke: white 1px;
+    margin: 0;
 }
 
 .history_text__white {
@@ -865,18 +870,22 @@ span.privacy-color_red {
     }
 
     .history {
+        height: 80vh;
         width: 68%;
-        position: relative;
-        overflow-y: hidden;
         margin: 0;
-        margin-bottom: 41px;
     }
 
     .history_text {
-        height: 100%;
-        overflow-y: hidden;
-        font-size: calc( (100vw - 992px)/(3840 - 992) * (142 - 36) + 36px);
-        
+        font-size: calc( (100vw - 992px)/(3840 - 992) * (142 - 36) + 36px); 
+        position: absolute;
+    }
+
+    .history_nickname {
+        cursor: default;
+    }
+
+    .history_nickname:hover {
+        color: white;
     }
 
     .history_gradient-container {

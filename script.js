@@ -1,3 +1,4 @@
+import nicknames from '/nicknames.js';
 // Бургер меню
 document.querySelector('.main-header_menu').onclick = () => {
     burgerMenuToggle();
@@ -242,3 +243,30 @@ function teamChange () {
         }
     }
 }
+
+// Блок история
+let historyText = document.querySelector('.history_text');
+
+
+for (let i = 0; i < nicknames.length; i++) {
+    let nicknameSpan = document.createElement("span");
+    nicknameSpan.innerText = `${nicknames[i]} `;
+    nicknameSpan.classList.add('history_nickname')
+    historyText.appendChild(nicknameSpan);
+}
+// let position = 0;
+// historyText.addEventListener('mousewheel', function(e) {
+//     if (e.deltaY < 0) {
+//         console.log('scrolling up');
+//         position += 20;
+//         historyText.style.top = position + '%';
+//       }
+//       if (e.deltaY > 0) {
+//         console.log('scrolling down');
+//         position -= 20;
+//         historyText.style.top = position + '%';
+//       }
+//       window.addEventListener.onscroll =  () => {
+//           return false;
+//       }
+// });
