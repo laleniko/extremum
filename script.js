@@ -1,4 +1,4 @@
-import nicknames from '/nicknames.js';
+
 // Бургер меню
 document.querySelector('.main-header_menu').onclick = () => {
     burgerMenuToggle();
@@ -245,6 +245,24 @@ function teamChange () {
 }
 
 // Блок история
+function getJSON(url) {
+    var resp ;
+    var xmlHttp ;
+
+    resp  = '' ;
+    xmlHttp = new XMLHttpRequest();
+
+    if(xmlHttp != null)
+    {
+        xmlHttp.open( "GET", url, false );
+        xmlHttp.send( null );
+        resp = xmlHttp.responseText;
+    }
+
+    return resp ;
+}
+let nicknames = getJSON('/nicknames.json').replace(/\[|\"/g, "").split(',');
+
 let historyText = document.querySelector('.history_text');
 
 

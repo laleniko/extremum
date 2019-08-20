@@ -393,13 +393,27 @@ a:focus, button:focus {
     margin: 50px;
     height: 400px;
     position: relative;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.history::-webkit-scrollbar { 
+    display: none;
 }
 .history_text {
-    font-size: 56px;
+    font-size: 32px;
     line-height: 150%;
     -webkit-text-stroke: white 1px;
     margin: 0;
+}
+
+.history::after {
+    content: "";
+    width: 100%;
+    height: 20%;
+    position: sticky;
+    top: 81%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 }
 
 .history_text__white {
@@ -870,7 +884,7 @@ span.privacy-color_red {
     }
 
     .history {
-        height: 80vh;
+        height: auto;
         width: 68%;
         margin: 0;
     }
@@ -878,6 +892,7 @@ span.privacy-color_red {
     .history_text {
         font-size: calc( (100vw - 992px)/(3840 - 992) * (142 - 36) + 36px); 
         position: absolute;
+        margin-top: 27px;
     }
 
     .history_nickname {
