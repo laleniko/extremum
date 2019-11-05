@@ -288,3 +288,40 @@ for (let i = 0; i < nicknames.length; i++) {
 //           return false;
 //       }
 // });
+
+
+var obj;
+
+fetch('https://extremum.gg/api/v1/stat')
+  .then(res => res.json())
+  .then(data => playersDataHeaders(data));
+
+function playersDataHeaders(data) {
+    for(key in data) {
+        playersDataInner(key,data[key]);
+    }
+}
+
+function playersDataInner(playerName, data) {
+    let playerBlock =  document.querySelector(`[data-player-name="${playerName}"]`);
+
+    let RATING = playerBlock.querySelector(`[data-stat="RATING"]`);
+    RATING.innerText = data.Rating_1_0;
+
+    let DPR = playerBlock.querySelector(`[data-stat="DPR"]`);
+    DPR.innerText = data.DPR;
+
+    let KAST = playerBlock.querySelector(`[data-stat="KAST"]`);
+    KAST.innerText = data.KAST;
+
+    let IMPACT = playerBlock.querySelector(`[data-stat="IMPACT"]`);
+    IMPACT.innerText = data.Impact;
+
+    let APR = playerBlock.querySelector(`[data-stat="APR"]`);
+    APR.innerText = data.ADR;
+
+    let KPR = playerBlock.querySelector(`[data-stat="KPR"]`);
+    KPR.innerText = data.KPR;
+}
+
+
