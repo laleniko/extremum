@@ -305,23 +305,45 @@ function playersDataHeaders(data) {
 function playersDataInner(playerName, data) {
     let playerBlock =  document.querySelector(`[data-player-name="${playerName}"]`);
 
+    let RATINGNAME = playerBlock.querySelector(`[data-stat="RATINGNAME"]`);
+    for(key in data) {
+        if(key == 'Rating_1_0') {
+            RATINGNAME.innerText = 'RATING 1.0';
+        }
+        if(key == 'Rating_2_0') {
+            RATINGNAME.innerText = 'RATING 2.0';
+        }
+    }
+
     let RATING = playerBlock.querySelector(`[data-stat="RATING"]`);
-    RATING.innerText = data.Rating_1_0;
+    if(data.Rating_1_0 || data.Rating_2_0) {
+        RATING.innerText = data.Rating_1_0 || data.Rating_2_0;
+    }
 
     let DPR = playerBlock.querySelector(`[data-stat="DPR"]`);
-    DPR.innerText = data.DPR;
+    if(data.DPR) {
+        DPR.innerText = data.DPR;
+    }
 
     let KAST = playerBlock.querySelector(`[data-stat="KAST"]`);
-    KAST.innerText = data.KAST;
+    if(data.KAST) {
+        KAST.innerText = data.KAST;
+    }
 
     let IMPACT = playerBlock.querySelector(`[data-stat="IMPACT"]`);
-    IMPACT.innerText = data.Impact;
+    if(data.Impact) {
+        IMPACT.innerText = data.Impact;
+    }
 
     let APR = playerBlock.querySelector(`[data-stat="APR"]`);
-    APR.innerText = data.ADR;
+    if(data.ADR) {
+        APR.innerText = data.ADR;
+    }
 
     let KPR = playerBlock.querySelector(`[data-stat="KPR"]`);
-    KPR.innerText = data.KPR;
+    if(data.KPR) {
+        KPR.innerText = data.KPR;
+    }
 }
 
 
