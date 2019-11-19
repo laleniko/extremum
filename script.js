@@ -350,27 +350,35 @@ fetch('https://extremum.gg/api/v2/stat')
     .then(res => res.json())
     .then(data => matches(data));
 
-function matches(data) {
-    console.log(data);
+function createArrayToShow(data) {
+    let arr = [];
+    arr[0] = data.lastMatches[0];
 
+    for(let i = 0; i < data.nextMatches.length; i++) {
+        arr[i+1] = data.nextMatches[i];
+    }
+    return arr
+}
+
+function matches(data) {
+    let array = createArrayToShow(data);
     let numberShowedMatch = 0;
-    matchesToPageInner(data.lastMatches[numberShowedMatch]);
+    matchesToPageInner(array[numberShowedMatch]);
 
     document.querySelector('.game-result__next').onclick = () => {
-        if (numberShowedMatch < 0) {
-            matchesToPageInner(data.nextMatches[numberShowedMatch]);
-            return
-        }
-        numberShowedMatch--;
-        matchesToPageInner(data.lastMatches[numberShowedMatch]);
-    }
-
-    document.querySelector('.game-result__previous').onclick = () => {
-        if (numberShowedMatch > data.lastMatches.length-1) {
+        if (numberShowedMatch > array.length-1) {
             return
         }
         numberShowedMatch++;
-        matchesToPageInner(data.lastMatches[numberShowedMatch]);
+        matchesToPageInner(array[numberShowedMatch]);
+    }
+
+    document.querySelector('.game-result__previous').onclick = () => {
+        if (numberShowedMatch < 0) {
+            return
+        }
+        numberShowedMatch--;
+        matchesToPageInner(array[numberShowedMatch]);
     }
 }
 
@@ -383,7 +391,6 @@ function matchesToPageInner(match) {
         return
     }
 
-    console.log(match);
     document.querySelector('.game-result__second-block').style.display = "flex";
     document.querySelector('.game-result__game').style.display = "block";
     document.querySelector('.no-matches').style.display = "none";
@@ -391,20 +398,29 @@ function matchesToPageInner(match) {
     document.querySelector('.game-result__game').innerText = match.event.name;
     document.querySelector('.team-name.team-1').innerText = match.enemy.name;
     document.querySelector('.team-logo.team-1').src = match.enemy.logo;
-    document.querySelector('.game-result__score.team-1').innerText = match.enemy.score;
 
     document.querySelector('.team-name.team-2').innerText = match.team.name;
     document.querySelector('.team-logo.team-2').src = match.team.logo;
-    document.querySelector('.game-result__score.team-2').innerText = match.team.score;
 
     let wonBlock = document.querySelector('.won');
     let failBlock = document.querySelector('.fail');
-    if (match.team.won) {
-        wonBlock.style.display = "block";
-        failBlock.style.display = "none";
-    } else {
-        wonBlock.style.display = "none";
-        failBlock.style.display = "block";
-    }
 
+    // scores
+    if(match.enemy.score === undefined) {
+        wonBlock.style.display = "none";
+        failBlock.style.display = "none";
+        document.querySelector('.game-result__score p').style.display = "none";
+    } else {
+        document.querySelector('.game-result__score p').style.display = "block";
+        document.querySelector('.game-result__score.team-1').innerText = match.enemy.score;
+        document.querySelector('.game-result__score.team-2').innerText = match.team.score;
+    
+        if (match.team.won) {
+            wonBlock.style.display = "block";
+            failBlock.style.display = "none";
+        } else {
+            wonBlock.style.display = "none";
+            failBlock.style.display = "block";
+        }
+    }
 }
