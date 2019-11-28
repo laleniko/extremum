@@ -302,6 +302,9 @@ function playersDataHeaders(data) {
 }
 
 function playersDataInner(playerName, data) {
+    if(!document.querySelector(`[data-player-name="${playerName}"]`)) {
+        return
+    }
     let playerBlock =  document.querySelector(`[data-player-name="${playerName}"]`);
 
     let RATINGNAME = playerBlock.querySelector(`[data-stat="RATINGNAME"]`);
@@ -366,17 +369,13 @@ function matches(data) {
     matchesToPageInner(array[numberShowedMatch]);
 
     document.querySelector('.game-result__next').onclick = () => {
-        if (numberShowedMatch > array.length-1) {
-            return
-        }
+        document.querySelectorAll('.game-result__button').forEach(element => element.classList.toggle('game-result__button_hidden'));
         numberShowedMatch++;
         matchesToPageInner(array[numberShowedMatch]);
     }
 
     document.querySelector('.game-result__previous').onclick = () => {
-        if (numberShowedMatch < 0) {
-            return
-        }
+        document.querySelectorAll('.game-result__button').forEach(element => element.classList.toggle('game-result__button_hidden'));
         numberShowedMatch--;
         matchesToPageInner(array[numberShowedMatch]);
     }
@@ -396,11 +395,11 @@ function matchesToPageInner(match) {
     document.querySelector('.no-matches').style.display = "none";
 
     document.querySelector('.game-result__game').innerText = match.event.name;
-    document.querySelector('.team-name.team-1').innerText = match.enemy.name;
-    document.querySelector('.team-logo.team-1').src = match.enemy.logo;
+    document.querySelector('.team-name.team-1').innerText = match.team.name;
+    document.querySelector('.team-logo.team-1').src = match.team.logo;
 
-    document.querySelector('.team-name.team-2').innerText = match.team.name;
-    document.querySelector('.team-logo.team-2').src = match.team.logo;
+    document.querySelector('.team-name.team-2').innerText = match.enemy.name;
+    document.querySelector('.team-logo.team-2').src = match.enemy.logo;
 
     let wonBlock = document.querySelector('.won');
     let failBlock = document.querySelector('.fail');
@@ -412,8 +411,8 @@ function matchesToPageInner(match) {
         document.querySelector('.game-result__score p').style.display = "none";
     } else {
         document.querySelector('.game-result__score p').style.display = "block";
-        document.querySelector('.game-result__score.team-1').innerText = match.enemy.score;
-        document.querySelector('.game-result__score.team-2').innerText = match.team.score;
+        document.querySelector('.game-result__score.team-1').innerText = match.team.score;
+        document.querySelector('.game-result__score.team-2').innerText = match.enemy.score;
     
         if (match.team.won) {
             wonBlock.style.display = "block";
