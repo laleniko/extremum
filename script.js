@@ -199,6 +199,7 @@ function teamChange () {
         } else {
             document.querySelector('.cs-go-team').style.display = "block";
             document.querySelector('.bns-team').style.display = "none";
+            document.querySelector('.dota2').style.display = "none";
             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
     
