@@ -179,71 +179,131 @@ document.querySelector('.main-header_logo').onclick = () => {
 
 
 // Выбор игрока
-let playerTeamHeaderBlock = document.querySelector('.gamer-section_header-container');
-let playTeamCollapseBlock = document.querySelector('.gamer-section_header-container-collapse');
-let playerTextHeaderMain = document.querySelector('.gamer-section_header-main');
-let playerTeamHeader = document.querySelector('.gamer-section_header-collapse');
-playerTeamHeaderBlock.onclick = teamChange;
 
-function teamChange () {
-    playerTeamHeaderBlock.onclick = null;
-    playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-    playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
 
-    document.querySelector('#cs-go-team').onclick = () => {
-
-        if(this.innerText.includes('BNS')) {
-            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-            playerTeamHeaderBlock.onclick = teamChange;
-        } else {
-            document.querySelector('.cs-go-team').style.display = "block";
-            document.querySelector('.bns-team').style.display = "none";
-            document.querySelector('.dota2').style.display = "none";
-            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-    
-            playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
-            playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
-    
-            playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
-            playerTeamHeader.dataset.eng = 'BNS TEAM'
-            languageInit();
-            playerTeamHeaderBlock.onclick = teamChange;
-        }
-
-    }
-
-    document.querySelector('#bns-team').onclick = () => {
-        if(this.innerText.includes('CS:GO')) {
-            document.querySelector('.cs-go-team').style.display = "none";
-            document.querySelector('.bns-team').style.display = "block";
-            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-    
-            playerTextHeaderMain.dataset.ru = 'КОМАНДА BNS'
-            playerTextHeaderMain.dataset.eng = 'BNS TEAM'
-    
-            playerTeamHeader.dataset.ru = 'КОМАНДА CS:GO'
-            playerTeamHeader.dataset.eng = 'TEAM CS:GO'
-            languageInit();
-            playerTeamHeaderBlock.onclick = teamChange;
-        } else {
-            document.querySelector('.cs-go-team').style.display = "block";
-            document.querySelector('.bns-team').style.display = "none";
-            playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-            playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-    
-            playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
-            playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
-    
-            playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
-            playerTeamHeader.dataset.eng = 'BNS TEAM'
-            languageInit();
-            playerTeamHeaderBlock.onclick = teamChange;
-        }
-    }
+document.querySelector('.team-select').onclick = () => {
+    document.querySelectorAll('.gamer-section_header-container')[0].classList.toggle('gamer-section_header-container-active');
 }
+
+document.querySelector('#csgo').onclick = () => {
+    selectTeam('csgo')
+}
+
+document.querySelector('#bns').onclick = () => {
+    selectTeam('bns')
+}
+
+document.querySelector('#dota').onclick = () => {
+    selectTeam('dota')
+}
+
+function selectTeam(team) {
+    if (team === 'csgo') {
+        document.querySelector('#csgo').style.display = "none";
+        document.querySelector('#bns').style.display = "flex";
+        document.querySelector('#dota').style.display = "flex";
+    
+        document.querySelector('.cs-go-team').style.display = "block";
+        document.querySelector('.bns-team').style.display = "none";
+        document.querySelector('.dota2-team').style.display = "none";
+        
+        document.querySelectorAll('.gamer-section_header')[0].dataset.eng = 'TEAM CS:GO';
+        document.querySelectorAll('.gamer-section_header')[0].dataset.ru = 'КОМАНДА CS:GO';
+
+        languageInit();
+    }
+
+    if (team === 'bns') {
+        document.querySelector('#csgo').style.display = "flex";
+        document.querySelector('#bns').style.display = "none";
+        document.querySelector('#dota').style.display = "flex";
+    
+        document.querySelector('.cs-go-team').style.display = "none";
+        document.querySelector('.bns-team').style.display = "block";
+        document.querySelector('.dota2-team').style.display = "none";
+        
+        document.querySelectorAll('.gamer-section_header')[0].dataset.eng = 'BNS TEAM';
+        document.querySelectorAll('.gamer-section_header')[0].dataset.ru = 'КОМАНДА BNS';
+
+        languageInit();
+    }
+
+    if (team === 'dota') {
+        document.querySelector('#csgo').style.display = "flex";
+        document.querySelector('#bns').style.display = "flex";
+        document.querySelector('#dota').style.display = "none";
+    
+        document.querySelector('.cs-go-team').style.display = "none";
+        document.querySelector('.bns-team').style.display = "none";
+        document.querySelector('.dota2-team').style.display = "block";
+        
+        document.querySelectorAll('.gamer-section_header')[0].dataset.eng = 'DOTA 2 TEAM';
+        document.querySelectorAll('.gamer-section_header')[0].dataset.ru = 'КОМАНДА DOTA 2';
+
+        languageInit();
+    }
+      
+}
+
+// function teamChange () {
+//     playerTeamHeaderBlock.onclick = null;
+//     playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+//     playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+
+//     document.querySelector('#cs-go-team').onclick = () => {
+
+//         if(this.innerText.includes('BNS')) {
+//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+//             playerTeamHeaderBlock.onclick = teamChange;
+//         } else {
+//             document.querySelector('.cs-go-team').style.display = "block";
+//             document.querySelector('.bns-team').style.display = "none";
+//             document.querySelector('.dota2').style.display = "none";
+//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+    
+//             playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
+//             playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
+    
+//             playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
+//             playerTeamHeader.dataset.eng = 'BNS TEAM'
+//             languageInit();
+//             playerTeamHeaderBlock.onclick = teamChange;
+//         }
+
+//     }
+
+//     document.querySelector('#bns-team').onclick = () => {
+//         if(this.innerText.includes('CS:GO')) {
+//             document.querySelector('.cs-go-team').style.display = "none";
+//             document.querySelector('.bns-team').style.display = "block";
+//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+    
+//             playerTextHeaderMain.dataset.ru = 'КОМАНДА BNS'
+//             playerTextHeaderMain.dataset.eng = 'BNS TEAM'
+    
+//             playerTeamHeader.dataset.ru = 'КОМАНДА CS:GO'
+//             playerTeamHeader.dataset.eng = 'TEAM CS:GO'
+//             languageInit();
+//             playerTeamHeaderBlock.onclick = teamChange;
+//         } else {
+//             document.querySelector('.cs-go-team').style.display = "block";
+//             document.querySelector('.bns-team').style.display = "none";
+//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
+//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
+    
+//             playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
+//             playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
+    
+//             playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
+//             playerTeamHeader.dataset.eng = 'BNS TEAM'
+//             languageInit();
+//             playerTeamHeaderBlock.onclick = teamChange;
+//         }
+//     }
+// }
 
 // Блок история
 function getJSON(url) {

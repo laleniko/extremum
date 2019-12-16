@@ -207,32 +207,21 @@ a:focus, button:focus {
     cursor: pointer;
 }
 
-.gamer-section_header-container__active {
-    background-color: white;
-}
-
-.gamer-section_header-container__active .gamer-section_header {
-    color: black;
-}
-
-.gamer-section_header-container__active .gamer-section_collapse{
-    background-image: url(../imgaes/icons/arrow-up_black.svg);
-}
-
 .gamer-section_header-container-collapse {
     position: absolute;
-    background-color: #1F1F1F;
+    background-color: white;
     z-index: 1;
     width: 100%;
-    top: 0;
+    top: 109px;
     box-sizing: border-box;
-    transition: top 0.2s;
+    transition: height 0.2s;
+    left: 0;
+    overflow: hidden;
+    height: 0;
 }
 
-.gamer-section_header-container-collapse__active {
-    top: 109px;
+.gamer-section_header-container-collapse .gamer-section_header-container {
     background-color: white;
-    transition: top 0.2s;
 }
 
 .gamer-section_header {
@@ -244,7 +233,7 @@ a:focus, button:focus {
 }
 
 .gamer-section_header-collapse {
-    color: #0D0D0D;
+    color: black;
 }
 
 .gamer-section_collapse {
@@ -257,7 +246,34 @@ a:focus, button:focus {
     margin-right: 26px;
 }
 
+/* Активированное меню */
+.gamer-section_header-container-active .gamer-section_header-container-collapse{
+    height: 200%;
+    transition: height 0.2s;
+}
+
+.gamer-section_header-container-active.gamer-section_header-container{
+    background-color: white;
+    color: black;
+}
+
+.gamer-section_header-container-active .gamer-section_header {
+    color: black;
+}
+
+.gamer-section_header-container-active .gamer-section_collapse{
+    background-image: url(../imgaes/icons/arrow-up_black.svg);
+}
+
+#csgo {
+    display: none;
+}
+
 .bns-team {
+    display: none;
+}
+
+.dota2-team {
     display: none;
 }
 
@@ -910,8 +926,8 @@ span.privacy-color_red {
         padding-right: 10%;
     }
 
-    .gamer-section_header-container-collapse__active {
-        top: calc( (100vw - 992px)/(3840 - 992) * (154 - 50) + 50px);
+    .gamer-section_header-container-collapse {
+        top:  calc( (100vw - 992px)/(3840 - 992) * (155 - 51) + 51px)
     }
 
     .gamer__trainer {
