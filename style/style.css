@@ -633,7 +633,7 @@ span.privacy-color_red {
 /* Player block */
 
 .player {
-    background-size: 450px 500px;
+    background-size: 343px;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
@@ -1248,5 +1248,18 @@ span.privacy-color_red {
 
     .welcome-section_inner-text:nth-of-type(2) {
         margin-left: 215px;
+    }
+}
+
+/* Фиксы контента */
+@media only screen and (min-width: 992px) and (max-width: 1700px) {
+    .gamer_nickname.gamer_nickname__BLACKARXANGEL {
+        font-size: calc( (100vw - 992px)/(1700 - 992) * (32 - 15) + 15px);
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .gamer_nickname.gamer_nickname__BLACKARXANGEL {
+        font-size: 21px;
     }
 }
