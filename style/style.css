@@ -389,7 +389,7 @@ a:focus, button:focus {
     line-height: 18px;
     color: rgba(0, 0, 0, 0.7);
     margin: 0;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .game-result__game {
@@ -420,6 +420,8 @@ a:focus, button:focus {
     text-align: right;
     cursor: pointer;
     background-color: transparent;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .game-result__button_hidden {
@@ -430,6 +432,7 @@ a:focus, button:focus {
     font-size: 12px;
     line-height: 12px;
     text-align: right;
+    margin: 0;
 }
 
 .won {

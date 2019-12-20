@@ -210,6 +210,8 @@ function selectTeam(team) {
         document.querySelectorAll('.gamer-section_header')[0].dataset.eng = 'TEAM CS:GO';
         document.querySelectorAll('.gamer-section_header')[0].dataset.ru = 'КОМАНДА CS:GO';
 
+        document.querySelector('.game-result').style.display = 'block';
+
         languageInit();
     }
 
@@ -224,6 +226,8 @@ function selectTeam(team) {
         
         document.querySelectorAll('.gamer-section_header')[0].dataset.eng = 'BNS TEAM';
         document.querySelectorAll('.gamer-section_header')[0].dataset.ru = 'КОМАНДА BNS';
+
+        document.querySelector('.game-result').style.display = 'none';
 
         languageInit();
     }
@@ -240,70 +244,12 @@ function selectTeam(team) {
         document.querySelectorAll('.gamer-section_header')[0].dataset.eng = 'DOTA 2 TEAM';
         document.querySelectorAll('.gamer-section_header')[0].dataset.ru = 'КОМАНДА DOTA 2';
 
+        document.querySelector('.game-result').style.display = 'none';
+
         languageInit();
     }
       
 }
-
-// function teamChange () {
-//     playerTeamHeaderBlock.onclick = null;
-//     playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-//     playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-
-//     document.querySelector('#cs-go-team').onclick = () => {
-
-//         if(this.innerText.includes('BNS')) {
-//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-//             playerTeamHeaderBlock.onclick = teamChange;
-//         } else {
-//             document.querySelector('.cs-go-team').style.display = "block";
-//             document.querySelector('.bns-team').style.display = "none";
-//             document.querySelector('.dota2').style.display = "none";
-//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-    
-//             playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
-//             playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
-    
-//             playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
-//             playerTeamHeader.dataset.eng = 'BNS TEAM'
-//             languageInit();
-//             playerTeamHeaderBlock.onclick = teamChange;
-//         }
-
-//     }
-
-//     document.querySelector('#bns-team').onclick = () => {
-//         if(this.innerText.includes('CS:GO')) {
-//             document.querySelector('.cs-go-team').style.display = "none";
-//             document.querySelector('.bns-team').style.display = "block";
-//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-    
-//             playerTextHeaderMain.dataset.ru = 'КОМАНДА BNS'
-//             playerTextHeaderMain.dataset.eng = 'BNS TEAM'
-    
-//             playerTeamHeader.dataset.ru = 'КОМАНДА CS:GO'
-//             playerTeamHeader.dataset.eng = 'TEAM CS:GO'
-//             languageInit();
-//             playerTeamHeaderBlock.onclick = teamChange;
-//         } else {
-//             document.querySelector('.cs-go-team').style.display = "block";
-//             document.querySelector('.bns-team').style.display = "none";
-//             playTeamCollapseBlock.classList.toggle('gamer-section_header-container-collapse__active');
-//             playerTeamHeaderBlock.classList.toggle('gamer-section_header-container__active');
-    
-//             playerTextHeaderMain.dataset.ru = 'КОМАНДА CS:GO'
-//             playerTextHeaderMain.dataset.eng = 'TEAM CS:GO'
-    
-//             playerTeamHeader.dataset.ru = 'КОМАНДА BNS'
-//             playerTeamHeader.dataset.eng = 'BNS TEAM'
-//             languageInit();
-//             playerTeamHeaderBlock.onclick = teamChange;
-//         }
-//     }
-// }
 
 // Блок история
 function getJSON(url) {
