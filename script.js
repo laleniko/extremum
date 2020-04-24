@@ -315,6 +315,11 @@ function playersDataInner(playerName, data) {
     let playerBlock =  document.querySelector(`[data-player-name="${playerName}"]`);
 
     let RATINGNAME = playerBlock.querySelector(`[data-stat="RATINGNAME"]`);
+
+    if(!playerBlock || !RATINGNAME) {
+        return
+    }
+
     for(key in data) {
         if(key == 'Rating_1_0') {
             RATINGNAME.innerText = 'RATING 1.0';
