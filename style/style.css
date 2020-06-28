@@ -899,6 +899,9 @@ span.privacy-color_red {
         border-left: 1px solid #1F1F1F;
         margin-bottom: -40px;
         box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
     }
 
     .gamer_photo {
@@ -1022,8 +1025,11 @@ span.privacy-color_red {
     }
 
     .game-result {
-        margin-top: 155px;
-        position: absolute;
+        margin-top: auto;
+    }
+
+    .cs-go-team {
+        margin-bottom: 155px;
     }
 
     .contacts {
@@ -1200,6 +1206,10 @@ span.privacy-color_red {
     .player {
         background-position: 20% center;
     }
+
+    .game-result {
+        margin-bottom: 122px;
+    }
 }
 
 @media only screen and (min-width: 2560px) {
@@ -1239,6 +1249,10 @@ span.privacy-color_red {
         font-size: calc( (100vw - 2560px)/(3840 - 2560) * (64 - 48) + 48px);
         font-weight: normal;
         margin: 0;
+    }
+
+    .game-result {
+        margin-bottom: 0;
     }
 }
 
